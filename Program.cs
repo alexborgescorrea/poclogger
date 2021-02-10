@@ -24,8 +24,10 @@ namespace poclogger
                     Serilog.Log.Logger = new LoggerConfiguration()
                     .Enrich.FromLogContext()
                     .WriteTo.Console()
+                    .WriteTo.Seq("http://localhost:5341/")
                     .CreateLogger();
                 })
+                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
