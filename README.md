@@ -44,3 +44,18 @@ Serilog.Sinks.Console,
 Serilog.Sinks.ElasticSearch, 
 Serilog.Sinks.File, 
 Serilog.Sinks.Seq, 
+
+## Como logar?
+- No asp.netcore o log funciona com a injeção da interface <strong>ILogger</strong>.
+- Através dela são disponíveis vários métodos de extensão para determinar o nível do log.
+
+        LogCritical
+        LogDebug
+        LogError
+        LogInformation
+        LogTrace
+        LogWarning
+
+## Como adicionar váriaveis personalizadas ao log
+![Customer](/Images/Log_no_Seq.png)
+        
