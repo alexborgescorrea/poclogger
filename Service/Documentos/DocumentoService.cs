@@ -16,6 +16,7 @@ namespace poclogger.Service.Documentos
 
         public void Processar(Documento docto)
         {
+            //Log in-line
             _logger.Scope("Docto_Numero", docto.Numero).LogInformation("Documento iniciou processamento.");
             docto.Arquivar();
             _logger.Scope("Docto_Numero", docto.Numero).LogInformation("Documento terminou terminou processamento.");
@@ -23,21 +24,22 @@ namespace poclogger.Service.Documentos
         
         public void Protestar(Documento docto)
         {
-            using (_logger.Scope(new Dictionary<string, object>
-            {
-                ["Docto_Numero"] = docto.Numero,
-                ["Docto_Trantante"] = docto.NomeTrantante
-            }))
+            //Log com abertura de escopo
+            using (_logger.Scope("Docto_Numero", docto.Numero))
             {
                 _logger.LogInformation("Documento iniciou protesto.");
                 docto.Protestar();
                 _logger.LogInformation("Documento terminou terminou protesto.");
             }
         }
-        
         public void Arquivar(Documento docto)
         {
-            using (_logger.Scope("Docto_Numero", docto.Numero))
+            //Log com abertura de escopo, com adição de várias propriedades
+            using (_logger.Scope(new Dictionary<string, object>
+            {
+                ["Docto_Numero"] = docto.Numero,
+                ["Docto_Trantante"] = docto.NomeTrantante
+            }))
             {
                 _logger.LogInformation("Documento iniciou arquivamento.");
                 docto.Arquivar();
