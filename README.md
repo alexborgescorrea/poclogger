@@ -78,4 +78,11 @@ Serilog.Sinks.Seq,
 - Para isso, foi criada a classe <strong>ICustomLoggerScope</strong> para abstrair chamadas diretas do SeriLog no meio do código.
 - Para habilitar a abstração é necessário adicionar o serviço na classe <strong>Startup</strong> da aplicação.
 ![ConfigureServices](/Images/ConfigureServices.png)
+- Com isso agora é possível trabalhar com das seguintes formas:
+![LogScope](/Images/LogScope.png)
+
+1. - Utilizando o método de extensão <strong>Scope</strong>. Ele cria um escopo de Log que implementa a interface <strong>IDisposable</strong>. 
+*O c# usa a estratégia de escopos IDisposable encadeados. Então os escopos mais internos são filhos dos mais externos*
+        
+        _logger.Scope("Docto_Numero", docto.Numero).LogInformation("Documento iniciou processamento.");
 
