@@ -57,5 +57,13 @@ Serilog.Sinks.Seq,
         LogWarning
 
 ## Como adicionar váriaveis personalizadas ao log
-![Customer](/Images/Log_no_Seq.png)
-        
+![Log_no_Seq](/Images/Log_no_Seq.png)
+
+- Para conseguir adicionar propriedades que serão gravadas no json do log gerado, deve ser adicionado, o comando <strong>Enrich.FromLogContext()</strong> na configuração incial do serilog.
+![Enrich_FromLogContext](/Images/Enrich_FromLogContext.png)
+
+       
+### 1- Adicionando váriaveis personalizadas para todos os log da aplicação
+- Caso você deseje que uma determina propriedade esteja incluída em qualquer log gerado pelo o sitema, você deve usar o comando <strong>Enrich.WithProperty</strong>.
+![Enrich_WithProperty](/Images/Enrich_WithProperty.png)
+
