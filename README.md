@@ -59,11 +59,23 @@ Serilog.Sinks.Seq,
 ## Como adicionar váriaveis personalizadas ao log
 ![Log_no_Seq](/Images/Log_no_Seq.png)
 
-- Para conseguir adicionar propriedades que serão gravadas no json do log gerado, deve ser adicionado, o comando <strong>Enrich.FromLogContext()</strong> na configuração incial do serilog.
+- Para conseguir adicionar propriedades, que serão gravadas no json do log gerado, deve ser adicionado o comando <strong>Enrich.FromLogContext()</strong> na configuração incial do serilog.
 ![Enrich_FromLogContext](/Images/Enrich_FromLogContext.png)
 
        
-### 1- Adicionando váriaveis personalizadas para todos os log da aplicação
+### Adicionando váriaveis personalizadas para todos os log da aplicação
 - Caso você deseje que uma determina propriedade esteja incluída em qualquer log gerado pelo o sitema, você deve usar o comando <strong>Enrich.WithProperty</strong>.
 ![Enrich_WithProperty](/Images/Enrich_WithProperty.png)
+- O Serilog também disponibiliza propriedades extras, através da adição de pacotes.
+
+        .Enrich.WithThreadId()
+        .Enrich.WithThreadName()
+        .Enrich.WithMachineName()
+        .Enrich.WithEnvironmentUserName()        
+- Pacotes a serem adicionados Serilog.Enrichers.Environment e Serilog.Enrichers.Thread    
+
+### Adicionando váriaveis personalizadas em um cotexto específico
+- Para isso, foi criada a classe <strong>ICustomLoggerScope</strong> para abstrair chamadas diretas do SeriLog no meio do código.
+- Para habilitar a abstração é necessário adicionar o serviço na classe <strong>Startup</strong> da aplicação.
+![ConfigureServices](/Images/ConfigureServices.png)
 
