@@ -32,7 +32,7 @@ Prova de conceito do Serilog
 - Essa é a forma sugerida de configuração inicial do Serilog
 - GitHub do https://github.com/serilog/serilog-aspnetcore 
 - Os logs gerados pelo o Serilog pode ter várias saídas ao mesmo tempo. 
-Para adicionar uma nova saída utlizasse o comando **"WriteTo.SaidaDesajada"**. Alguns exemplos de saídas.:
+Para adicionar uma nova saída use o comando **"WriteTo.SaidaDesajada"**. Alguns exemplos de saídas.:
 
       .WriteTo.Console(....//Console
       .WriteTo.Seq(....//Seq
@@ -75,7 +75,7 @@ Serilog.Sinks.Seq,
 - Pacotes a serem adicionados Serilog.Enrichers.Environment e Serilog.Enrichers.Thread    
 
 ### Adicionando váriaveis personalizadas em um contexto específico
-- Para isso, foi criada a classe **ICustomLoggerScope** para abstrair chamadas diretas do SeriLog no meio do código.
+- Para isso, foi criada a classe **ICustomLoggerScope** para abstrair chamadas ao SeriLog e com isso diminuir o acoplamento.
 - Para habilitar a abstração é necessário adicionar o serviço na classe **Startup** da aplicação.
 ![ConfigureServices](/Images/ConfigureServices.png)
 - Com isso agora é possível trabalhar das seguintes formas:
