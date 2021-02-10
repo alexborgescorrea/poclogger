@@ -23,6 +23,7 @@ namespace poclogger
                 {
                     Serilog.Log.Logger = new LoggerConfiguration()
                     .Enrich.FromLogContext()
+                    .Enrich.WithProperty("Minha_Propriedade_personalizada", "Valor qualquer")
                     .WriteTo.Console()
                     .WriteTo.Seq("http://localhost:5341/")
                     .CreateLogger();
