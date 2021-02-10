@@ -74,7 +74,7 @@ Serilog.Sinks.Seq,
         .Enrich.WithEnvironmentUserName()        
 - Pacotes a serem adicionados Serilog.Enrichers.Environment e Serilog.Enrichers.Thread    
 
-### Adicionando váriaveis personalizadas em um cotexto específico
+### Adicionando váriaveis personalizadas em um contexto específico
 - Para isso, foi criada a classe **ICustomLoggerScope** para abstrair chamadas diretas do SeriLog no meio do código.
 - Para habilitar a abstração é necessário adicionar o serviço na classe **Startup** da aplicação.
 ![ConfigureServices](/Images/ConfigureServices.png)
@@ -113,4 +113,13 @@ Serilog.Sinks.Seq,
                 docto.Arquivar();
                 _logger.LogInformation("Documento terminou terminou arquivamento.");
         }        
+
+### Adicionando váriaveis personalizadas por request
+
+- Para adicionar váriaveis personalizadas por request, foi criado um middleware para abstrair as complexidades do Serilog.
+- Adicione ao **Startup.Configure** o **app.UseCustomLoggerProperties**, através desse método se tem acesso ao HttpContext da requisição, podendo assim incluir ao scope do log informações da request ou do response da requisição.
+- É importante que essa chamada seja a primeira da fila do pipe, para que o scope abranja todo o ciclo de vida da requisição.
+![StartupConfigure](/Images/StartupConfigure.png)
+
+
 
