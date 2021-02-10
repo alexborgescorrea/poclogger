@@ -7,9 +7,9 @@ namespace poclogger.Service.Documentos
 {
     public class DocumentoService : IDocumentoService
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<DocumentoService> _logger;
 
-        public DocumentoService(ILogger logger)
+        public DocumentoService(ILogger<DocumentoService> logger)
         {
             _logger = logger;
         }

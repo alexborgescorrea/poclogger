@@ -11,15 +11,16 @@ namespace poclogger.Controllers
     public class DocumentoController : ControllerBase
     {
         private readonly IDocumentoService _documentoService;
-        private readonly ILogger _logger;
+        private readonly ILogger<DocumentoController> _logger;
 
         public DocumentoController(IDocumentoService documentoService,
-                                   ILogger logger)
+                                   ILogger<DocumentoController> logger)
         {
             _documentoService = documentoService;
             _logger = logger;
         }
 
+        [HttpPost("Processar")]
         public void Processar(Documento docto)
         {
             using (_logger.Scope("Docto_Id", docto.Id))
@@ -28,6 +29,7 @@ namespace poclogger.Controllers
             }
         }
 
+        [HttpPost("Protestar")]
         public void Protestar(Documento docto)
         {
             using (_logger.Scope("Docto_Id", docto.Id))
@@ -36,6 +38,7 @@ namespace poclogger.Controllers
             }
         }
 
+        [HttpPost("Arquivar")]
         public void Arquivar(Documento docto)
         {
             using (_logger.Scope("Docto_Id", docto.Id))
