@@ -64,7 +64,7 @@ Serilog.Sinks.Seq,
 
        
 ### Adicionando váriaveis personalizadas para todos os log da aplicação
-- Caso você deseje que uma determina propriedade esteja incluída em qualquer log gerado pelo o sitema, você deve usar o comando **Enrich.WithProperty**.
+- Caso você deseje que uma determina propriedade esteja incluída em qualquer log gerado pelo o sistema, você deve usar o comando **Enrich.WithProperty**.
 ![Enrich_WithProperty](/Images/Enrich_WithProperty.png)
 - O Serilog também disponibiliza propriedades extras, através da adição de pacotes.
 
