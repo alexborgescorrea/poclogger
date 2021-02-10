@@ -32,7 +32,7 @@ Prova de conceito do Serilog
 - Essa é a forma sugerida de configuração inicial do Serilog
 - GitHub do https://github.com/serilog/serilog-aspnetcore 
 - Os logs gerados pelo o Serilog pode ter várias saídas ao mesmo tempo. 
-Para adicionar uma nova saída use o comando **"WriteTo.SaidaDesajada"**. Alguns exemplos de saídas.:
+Para adicionar uma nova saída use o comando **"WriteTo.SaidaDesejada"**. Alguns exemplos de saídas.:
 
       .WriteTo.Console(....//Console
       .WriteTo.Seq(....//Seq
