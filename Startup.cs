@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using poclogger.CustomLogger;
+using poclogger.Service.Documentos;
 
 namespace poclogger
 {
@@ -28,6 +29,7 @@ namespace poclogger
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCustomLogScope(new SerilogCustomLoggerScope());
+            services.AddScoped<IDocumentoService, DocumentoService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

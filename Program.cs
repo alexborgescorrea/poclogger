@@ -35,6 +35,7 @@ namespace poclogger
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    
                     webBuilder.UseStartup<Startup>();
                 });
     }
