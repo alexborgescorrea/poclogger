@@ -19,7 +19,7 @@ Prova de conceito do Serilog
                     Serilog.Log.Logger = new LoggerConfiguration()
                     .Enrich.FromLogContext()
                     .WriteTo.Console() //Configura as saídas dos logs para o console
-                    .WriteTo.Seq("http://localhost:5341/") //Configura as saídas dos logs para o Seq. Seq é uma aplicativo externo para ajudar visualizar os logs gerados pelo o sistema
+                    .WriteTo.Seq("http://localhost:5341/") //Configura as saídas dos logs para o Seq. Seq é um aplicativo externo para ajudar visualizar os logs gerados pelo o sistema
                     .CreateLogger();
                 })
                 .UseSerilog()
