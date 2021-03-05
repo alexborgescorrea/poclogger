@@ -39,29 +39,29 @@ namespace poclogger
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {            
             app.UseCustomLoggerProperties((httpCtx, props) =>
             {
                 props.Add("Propriedade_Por_Request", "Valor por request");
             });
-            
+                                    
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
+                app.UseSwagger();                
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "poclogger v1"));
-            }
+            }                        
 
-            app.UseHttpsRedirection();
+            app.UseHttpsRedirection();                        
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthorization();            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
+            });            
         }
     }
 }
